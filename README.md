@@ -6,7 +6,7 @@
 
 ## 2. sspcのコンテナの起動
   `docker start sspc`  
-### ※dockerのコンテナの確認  
+※dockerのコンテナの確認  
   `dokcer ps`
 
 ## 3. ファイルの転送
