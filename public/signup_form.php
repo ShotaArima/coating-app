@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewpoint" content="witdh=device-width, initial-scale=1.0">
+        <meta name="viewport" content="witdh=device-width, initial-scale=1.0">
         <title>ユーザ登録</title>
     </head>
     <body>
