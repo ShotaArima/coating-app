@@ -1,4 +1,7 @@
 <?php
+
+    require_once '../classes/UserLogic.php';
+
     // エラーメッセージ
     $err = [];
 
@@ -22,6 +25,13 @@
     if(count($err) === 0)
     {
         // ユーザーを登録する処理
+        $hasCreated = UserLogic::createUser($_POST);
+
+        if(!$hasCreated)
+        {
+            $err['email'] = '登録に失敗しました。';
+        }
+
     }
 ?>
 <!DOCTYPE html>
