@@ -1,6 +1,9 @@
 <?php
     session_start();
     require_once '../classes/UserLogic.php';
+
+    $login_err = isset($_SESSiON['login_err']) ? $_SESSION['login_err'] : null;
+    unset($_SESSION['login_err']);
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +15,9 @@
     </head>
     <body>
         <h2>ユーザ登録フォーム</h2>
+        <?php if(isset($login_err)): ?>
+            <p><?php echo $login_err; ?></p>
+        <?php endif; ?>
         <form action="register.php" method="POST">
             <p>
                 <label for="email">メールアドレス：</label>

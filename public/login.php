@@ -32,24 +32,17 @@
         header('Location: login.php');
         return;
     }
-    echo 'ログイン成功です。';
-
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>ユーザ登録完了画面</title>
+        <title>ログイン完了</title>
     </head>
     <body>
-        <?php if(count($err) > 0): ?>
-            <?php foreach($err as $e): ?>
-                <p><?php echo $e ?></p>
-            <?php endforeach ?>
-        <?php else: ?>
-            <p>ユーザ登録が完了しました。</p>
-            <a href="login.php">戻る</a>
-        <?php endif ?>
-        </body>
+        <h2>ログインが完了</h2>
+        <p>ログインしました。</p>
+        <a href="./mypage.php">マイページへ</a>
+    </body>
 </html>
