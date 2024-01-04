@@ -2,37 +2,39 @@
 
     require_once '../classes/UserLogic.php';
 
+    session_start();
+
     // エラーメッセージ
     $err = [];
 
     // バリデーション
     if(!$email = filter_input(INPUT_POST, 'email'))
     {
-        $err = 'メールアドレスを記入してください。';
+        $err['email'] = 'メールアドレスを記入してください。';
     }
     $password = filter_input(INPUT_POST, 'password');
-    // 正規表現
-    if(!preg_match("/\A[a-z\d]{8,100}+\z/i",$password))
+    if($password !== filter_input(INPUT_POST, 'password'))
     {
-        $err = 'パスワードは英数字8文字以上100文字以下にしてください。';
-    }
-    $password_conf= filter_input(INPUT_POST, 'password_conf');
-    if ($password !== $password_conf)
-    {
-        $err = '確認用パスワードと異なっています。';
+        $err['password'] = 'パスワードを記入してください。';
     }
 
-    if(count($err) === 0)
+    if(count($err) > 0)
     {
-        // ユーザーを登録する処理
-        $hasCreated = UserLogic::createUser($_POST);
-
-        if(!$hasCreated)
-        {
-            $err['email'] = '登録に失敗しました。';
-        }
-
+        // エラーがあった場合は戻す
+        $_SESSION['err'] = $err;
+        header('Location: login.php');
+        return;
     }
+    // ログインする処理
+    $result = UserLogic::login($email, $password);
+    // ログイン失敗時の処理
+    if(!$result)
+    {
+        header('Location: login.php');
+        return;
+    }
+    echo 'ログイン成功です。';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,7 +50,7 @@
             <?php endforeach ?>
         <?php else: ?>
             <p>ユーザ登録が完了しました。</p>
-            <a href="./signup_form.php">戻る</a>
+            <a href="login.php">戻る</a>
         <?php endif ?>
         </body>
 </html>
