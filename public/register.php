@@ -19,7 +19,7 @@
     $password_conf= filter_input(INPUT_POST, 'password_conf');
     if ($password !== $password_conf)
     {
-        $err['password_conf']r = '確認用パスワードと異なっています。';
+        $err['password_conf'] = '確認用パスワードと異なっています。';
     }
 
     if(count($err) === 0)
