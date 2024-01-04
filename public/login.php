@@ -21,7 +21,7 @@
     {
         // エラーがあった場合は戻す
         $_SESSION['err'] = $err;
-        header('Location: login.php');
+        header('Location: login_form.php');
         return;
     }
     // ログインする処理

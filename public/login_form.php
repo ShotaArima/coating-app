@@ -19,7 +19,7 @@
         <?php if(isset($err['msg'])): ?>
             <p><?php echo $err['msg']; ?></p>
         <?php endif; ?>
-        <form action="top.php" method="POST">
+        <form action="login.php" method="POST">
             <p>
                 <label for="email">メールアドレス：</label>
                 <input type="email" name="email">
