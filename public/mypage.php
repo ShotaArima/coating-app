@@ -27,6 +27,8 @@
     <body>
         <h2>マイページ</h2>
         <p>メールアドレス：<?php echo h($login_user['email']) ?></p>
-        <a href="./login.php">ログアウト</a>
-        </body>
+        <form action="logout.php" method="POST">
+            <input type="submit" name="logout" value="ログアウト">
+        </form>
+    </body>
 </html>
