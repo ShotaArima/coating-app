@@ -109,7 +109,7 @@ class UserLogic
         $result = false;
 
         // セッションにログインユーザが入っていなかったらfalse
-        if(isset($_SESSION['login_user']) && $_SESSION['login_user']['id'] > 0)
+        if(isset($_SESSION['login_user']) && isset($_SESSION['login_user']['id']) && $_SESSION['login_user']['id'] > 0)
         {
             return $result = true;
         }

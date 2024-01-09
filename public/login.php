@@ -29,7 +29,7 @@
     // ログイン失敗時の処理
     if(!$result)
     {
-        header('Location: login.php');
+        header('Location: login_form.php');
         return;
     }
 ?>
