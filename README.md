@@ -15,7 +15,7 @@
 
 ## 4. 検証
 ブラウザで実行画面を確認します。  
-リンク : http://127.0.0.1:10800/~sspuser/coating-app
+リンク : http://127.0.0.1:10800/~sspuser/coating-app/public/login.php
 
 # docker上のMySQLにログインする方法
 `docker exec -it sspc mysql -u root -p`
